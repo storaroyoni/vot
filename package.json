@@ -1,0 +1,13 @@
+{
+    "name": "your-app-name",
+    "version": "1.0.0",
+    "description": "Your Node.js app description",
+    "main": "server.js",
+    "scripts": {
+        "start": "node server.js"
+    },
+    "dependencies": {
+        "express": "^4.17.1",
+        "mysql2": "^2.3.3"
+    }
+}
