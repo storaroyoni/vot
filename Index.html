@@ -1,20 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Sample Website</title>
-    <!-- Add any CSS link or internal styles here -->
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>League of Legends Champions</title>
+  <style>
+    /* Add your CSS styles here */
+    /* For example: */
+    .champion {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 10px;
+      width: 300px;
+    }
+    .champion img {
+      max-width: 100%;
+    }
+  </style>
 </head>
-
 <body>
-    <h1>Champions List</h1>
+  <h1>League of Legends Champions</h1>
+  <div id="championsList"></div>
 
-    <!-- Display area for champions -->
-    <div id="champions-list"></div>
+  <script>
+    const champions = [
+      {
+        name: 'Ahri',
+        description: 'Ahri is a charismatic champion with magical abilities.',
+        imageUrl: 'https://ddragon.leagueoflegends.com/cdn/11.22.1/img/champion/Ahri.png'
+      },
+      {
+        name: 'Ezreal',
+        description: 'Ezreal is an adventurous explorer armed with arcane abilities.',
+        imageUrl: 'https://ddragon.leagueoflegends.com/cdn/11.22.1/img/champion/Ezreal.png'
+      }
+      // add more champion data as needed
+    ];
 
-    <script src="scripts.js"></script>
+    const championsList = document.getElementById('championsList');
+    champions.forEach(champion => {
+      // Create a card for each champion
+      const card = document.createElement('div');
+      card.classList.add('champion');
+      card.innerHTML = `
+        <h2>${champion.name}</h2>
+        <p>${champion.description}</p>
+        <img src="${champion.imageUrl}" alt="${champion.name}">
+      `;
+      championsList.appendChild(card);
+    });
+  </script>
 </body>
-
 </html>
