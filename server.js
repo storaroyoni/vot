@@ -1,33 +1,8 @@
 const express = require('express');
-const mysql = require('mysql2/promise');
-
 const app = express();
+const path = require('path');
 
-// Create a MySQL connection pool
-const pool = mysql.createPool({
-  host: process.env.DB_HOST || 'mysql-db',
-  user: process.env.DB_USER || 'yourdbuser',
-  password: process.env.DB_PASSWORD || 'yourdbpassword',
-  database: process.env.DB_NAME || 'yourdbname',
-  waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0,
-});
-
-// Route to get all champions from MySQL
-app.get('/api/champions', async (req, res) => {
-  try {
-    const connection = await pool.getConnection();
-    const [rows] = await connection.query('SELECT * FROM champions');
-    connection.release();
-    res.json(rows);
-  } catch (err) {
-    console.error('MySQL query error:', err);
-    res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
-// Sample champion data (in a real-world scenario, this would be fetched from a database)
+// Sample champion data
 const champions = [
   {
     name: 'Ahri',
@@ -42,8 +17,13 @@ const champions = [
   // Add more champion data as needed
 ];
 
-// Route to get all champions locally
-app.get('/api/champions/local', (req, res) => {
+// Serve HTML file
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
+
+// Serve champion data as JSON
+app.get('/api/champions', (req, res) => {
   res.json(champions);
 });
 
