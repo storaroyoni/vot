@@ -25,10 +25,10 @@ services:
       RABBITMQ_DEFAULT_PASS: yourrabbitmqpassword
 
   node-backend:
-    build: ./path/to/your/nodejs-app    # Replace this with the path to your Node.js app
+    build: ./path/to/your/nodejs-app    
     restart: always
     ports:
-      - "3000:3000"                     # Port your Node.js app is running on
+      - "3000:3000"                    
 
 volumes:
   mysql-data:
