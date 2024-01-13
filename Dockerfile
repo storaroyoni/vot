@@ -1,13 +1,13 @@
 FROM node:latest
 
-WORKDIR /usr/src/app
-
+WORKDIR /app
+USER root
 COPY package*.json ./
+COPY . . 
 
 RUN npm install
-
-COPY . .
 
 EXPOSE 3000
 
 CMD ["npm", "start"]
+
