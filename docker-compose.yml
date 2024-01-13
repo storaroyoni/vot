@@ -5,10 +5,10 @@ services:
     image: arm64v8/mysql:latest  
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: examplepassword
-      MYSQL_DATABASE: yourdbname
-      MYSQL_USER: yourdbuser
-      MYSQL_PASSWORD: yourdbpassword
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: yo
+      MYSQL_USER: yodb
+      MYSQL_PASSWORD: pass
     ports:
       - "3306:3306"
     volumes:
@@ -21,14 +21,15 @@ services:
       - "5672:5672"
       - "15672:15672"
     environment:
-      RABBITMQ_DEFAULT_USER: yourrabbitmquser
-      RABBITMQ_DEFAULT_PASS: yourrabbitmqpassword
+      RABBITMQ_DEFAULT_USER: yoni
+      RABBITMQ_DEFAULT_PASS: pass
 
   node-backend:
-    build: ./path/to/your/nodejs-app    
+    build: ./
     restart: always
     ports:
       - "3000:3000"                    
 
 volumes:
   mysql-data:
+
