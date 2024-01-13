@@ -1,0 +1,58 @@
+openapi: 3.0.0
+info:
+  title: League of Legends Champions API
+  version: 1.0.0
+  description: An API to retrieve information about League of Legends champions.
+
+paths:
+  /:
+    get:
+      summary: Serve HTML file
+      responses:
+        '200':
+          description: Successful response
+          content:
+            text/html:
+              schema:
+                type: string
+                example: "<!DOCTYPE html><html><head>...</head><body>...</body></html>"
+
+  /api/champions:
+    get:
+      summary: Get champion data as JSON
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                      description: The name of the champion
+                      example: Ahri
+                    description:
+                      type: string
+                      description: A brief description of the champion
+                      example: Ahri is a charismatic champion with magical abilities.
+                    imageUrl:
+                      type: string
+                      format: uri
+                      description: URL of the champion's image
+                      example: https://ddragon.leagueoflegends.com/cdn/11.22.1/img/champion/Ahri.png
+        '500':
+          description: Internal Server Error
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Internal Server Error
+
+servers:
+  - url: http://localhost:3000
