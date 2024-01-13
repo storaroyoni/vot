@@ -1,4 +1,4 @@
-// Fetch champions data from the backend
+// fetch champions data from the backend
 fetch('/api/champions')
     .then(response => response.json())
     .then(champions => {
