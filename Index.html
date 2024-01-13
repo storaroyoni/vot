@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>League of Legends Champions</title>
+  <title>Champions List</title>
   <style>
-    /* Add your CSS styles here */
-    /* For example: */
+  
     .champion {
       border: 1px solid #ccc;
       padding: 10px;
@@ -18,36 +17,28 @@
   </style>
 </head>
 <body>
-  <h1>League of Legends Champions</h1>
+  <h1>Champions List</h1>
   <div id="championsList"></div>
 
   <script>
-    const champions = [
-      {
-        name: 'Ahri',
-        description: 'Ahri is a charismatic champion with magical abilities.',
-        imageUrl: 'https://ddragon.leagueoflegends.com/cdn/11.22.1/img/champion/Ahri.png'
-      },
-      {
-        name: 'Ezreal',
-        description: 'Ezreal is an adventurous explorer armed with arcane abilities.',
-        imageUrl: 'https://ddragon.leagueoflegends.com/cdn/11.22.1/img/champion/Ezreal.png'
-      }
-      // add more champion data as needed
-    ];
-
-    const championsList = document.getElementById('championsList');
-    champions.forEach(champion => {
-      // Create a card for each champion
-      const card = document.createElement('div');
-      card.classList.add('champion');
-      card.innerHTML = `
-        <h2>${champion.name}</h2>
-        <p>${champion.description}</p>
-        <img src="${champion.imageUrl}" alt="${champion.name}">
-      `;
-      championsList.appendChild(card);
-    });
+    // fetch data from API endpoint
+    fetch('/api/champions')
+      .then(response => response.json())
+      .then(champions => {
+        const championsList = document.getElementById('championsList');
+        champions.forEach(champion => {
+          // create a card for each champion
+          const card = document.createElement('div');
+          card.classList.add('champion');
+          card.innerHTML = `
+            <h2>${champion.name}</h2>
+            <p>${champion.description}</p>
+            <img src="${champion.imageUrl}" alt="${champion.name}"></img>
+          `;
+          championsList.appendChild(card);
+        });
+      })
+      .catch(error => console.error('Error:', error));
   </script>
 </body>
 </html>
