@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
-// Sample champion data
+// sample champion data
 const champions = [
   {
     name: 'Ahri',
@@ -14,20 +14,20 @@ const champions = [
     description: 'Ezreal is an adventurous explorer armed with arcane abilities.',
     imageUrl: 'https://ddragon.leagueoflegends.com/cdn/11.22.1/img/champion/Ezreal.png'
   }
-  // Add more champion data as needed
+  // add more champion data as needed
 ];
 
-// Serve HTML file
+// serve HTML file
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'Index.html'));
 });
 
-// Serve champion data as JSON
+// serve champion data as JSON
 app.get('/api/champions', (req, res) => {
   res.json(champions);
 });
 
-// Start server
+// start server
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
