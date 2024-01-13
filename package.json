@@ -1,7 +1,7 @@
 {
-    "name": "your-app-name",
+    "name": "league-app",
     "version": "1.0.0",
-    "description": "Your Node.js app description",
+    "description": "uhu",
     "main": "server.js",
     "scripts": {
         "start": "node server.js"
