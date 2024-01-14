@@ -57,8 +57,6 @@ Response: 200 OK with a success message, or 404 Not Found if the champion is not
 Contributing
 If you find issues or have suggestions for improvements, feel free to open an issue or create a pull request. Your contributions are highly welcome!
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 Acknowledgments
 Special thanks to all contributors who have helped in the development of this League of Legends Champions API. Your efforts are greatly appreciated!
