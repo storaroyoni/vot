@@ -1,4 +1,5 @@
 League of Legends Champions API
+
 Welcome to the League of Legends Champions API! This API provides information about champions in the popular online multiplayer game, League of Legends. Whether you're developing a new app, website, or any other project related to League of Legends, this API is designed to help you access champion data effortlessly.
 
 Table of Contents
@@ -12,6 +13,7 @@ Getting Started
 To incorporate the League of Legends Champions API into your project, follow these simple steps:
 
 Clone the repository:
+
 
 bash
 Copy code
@@ -50,20 +52,8 @@ Endpoint: DELETE /api/champions/{name}
 Description: Delete a specific champion by providing its name.
 Parameters: name (string) - The name of the champion.
 Response: 200 OK with a success message, or 404 Not Found if the champion is not found.
-Example Usage
-javascript
-Copy code
-// Example using Node.js and Axios
-const axios = require('axios');
 
-// Get all champions
-axios.get('http://localhost:3000/api/champions')
-  .then(response => {
-    console.log(response.data);
-  })
-  .catch(error => {
-    console.error(error);
-  });
+
 Contributing
 If you find issues or have suggestions for improvements, feel free to open an issue or create a pull request. Your contributions are highly welcome!
 
